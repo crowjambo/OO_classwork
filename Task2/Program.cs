@@ -17,15 +17,34 @@ using System;
 
 namespace Task2
 {
+    
     class Program
     {
+
         static void Main(string[] args)
         {
-        
-            
+            //create student
+            Student student1 = new Student();
 
-            // string test = Console.ReadLine();
-            // Console.WriteLine("\n your input {0}", test);
+            //user input
+            Console.Write("Enter student name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter LastName: ");
+            string lastName = Console.ReadLine();
+            Console.Write("Enter Group Name: ");
+            string groupName = Console.ReadLine();
+
+            //use setters
+            student1.setFullName(name,lastName);
+            student1.setGroup(groupName);
+            
+            //subjects input
+            student1 = Student.SubjectsInput(student1);
+
+
+            //outputs
+            Console.Write("{0} {1} \n", student1.getFullName(), student1.getGroup());
+            student1.getSubjects().ForEach(el => Console.WriteLine(el.getInfo()));
         }
     }
 }
