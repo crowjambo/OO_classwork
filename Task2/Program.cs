@@ -21,7 +21,11 @@ namespace Task2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        
+            
+
+            // string test = Console.ReadLine();
+            // Console.WriteLine("\n your input {0}", test);
         }
     }
 }
