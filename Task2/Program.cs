@@ -1,16 +1,11 @@
 ﻿// Parašykite programą, kuri apskaičiuoja studento pažymių vidurkį, atsižvelgdama į dalykų apimtį kreditais.
-
-// Pagrindiniai reikalavimai:
-
-//     Programa turi leisti įvesti studento duomenis (vardas, pavarde, grupė) ir išklausytus dalykus (pavadinimas, įvertinimas, kreditų kiekis) klaviatūra. (7 taškai)
-//     Programa ekrane turi išvesti pilną studento informaciją ir apskaičiuotojo vidurkio reikšmę. (8 taškai)
-
-// Papildomas reikalavimas:
-
-//     Programos architektūra turi atitikti vienafunkciškumo principą (angl. Single Responsibility). (10 taškų)
-
+//Programa turi leisti įvesti studento duomenis (vardas, pavarde, grupė) ir išklausytus dalykus (pavadinimas, įvertinimas, kreditų kiekis) klaviatūra. (7 taškai)
+//Programa ekrane turi išvesti pilną studento informaciją ir apskaičiuotojo vidurkio reikšmę. (8 taškai)
+//Programos architektūra turi atitikti vienafunkciškumo principą (angl. Single Responsibility). (10 taškų)
+//============================
 //EVALDAS PAULAUSKAS PI18E
 //TASK 2
+//============================
 
 
 using System;
@@ -24,27 +19,19 @@ namespace Task2
         static void Main(string[] args)
         {
             //create student
-            Student student1 = new Student();
+            Student student1 = new Student(InputManager.StudentInput());
 
-            //user input
-            Console.Write("Enter student name: ");
-            string name = Console.ReadLine();
-            Console.Write("Enter LastName: ");
-            string lastName = Console.ReadLine();
-            Console.Write("Enter Group Name: ");
-            string groupName = Console.ReadLine();
-
-            //use setters
-            student1.setFullName(name,lastName);
-            student1.setGroup(groupName);
-            
-            //subjects input
-            student1 = Student.SubjectsInput(student1);
-
+            //adds subjects
+            for(int i = 0; i<3;i++){
+                student1.addSubject(InputManager.SubjectInput());
+            }
 
             //outputs
-            Console.Write("{0} {1} \n", student1.getFullName(), student1.getGroup());
+            Console.WriteLine("\n\n-------------------\n\n");
+            Console.Write($"{student1.getFullName()} {student1.getGroup()} \n");
             student1.getSubjects().ForEach(el => Console.WriteLine(el.getInfo()));
+            Console.WriteLine($"Average grade: {student1.calculateAverage()}");
+            Console.WriteLine("\n\n-------------------");
         }
     }
 }

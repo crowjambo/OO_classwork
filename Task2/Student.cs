@@ -1,7 +1,4 @@
 
-//     Programa turi leisti įvesti studento duomenis (vardas, pavarde, grupė) ir išklausytus dalykus (pavadinimas, įvertinimas, kreditų kiekis) klaviatūra. (7 taškai)
-//     Programa ekrane turi išvesti pilną studento informaciją ir apskaičiuotojo vidurkio reikšmę. (8 taškai)
-
 using System;
 using System.Collections; 
 using System.Collections.Generic; 
@@ -10,13 +7,13 @@ namespace Task2
 {
     class Student
     {
-        //variables
+        // ------------------- VARS -------------------
         private string name;
         private string lastName;
         private string group;
         private List<Subject> subjects = new List<Subject>();
 
-        //getters and setters
+        // ------------------- GET SET -------------------
         public string getFullName(){
             return this.name + " " + this.lastName;
         }
@@ -33,61 +30,51 @@ namespace Task2
 
         public List<Subject> getSubjects(){
             return subjects;
-
-
-
-            //return the whole array or list and using foreach in program.cs print it all out?
-            //whats the solid/dry approach to returning arrays or lists and printing them out?
-            //simply return and thats it? this is just for data and data manipulation
         }
 
-        //constructor
-        public Student(){
-            //leave empty? or default values
+        // ------------------- CONSTRUCTORS -------------------
+        public Student(string name = "Evaldas", string lastName = "Paulauskas", string group = "PI18E"){
+            this.name = name;
+            this.lastName = lastName;
+            this.group = group;
         }
 
-        //methods
-        public void addSubject(string name, int grade, int credits){  
-            Subject newSubject = new Subject(name,grade,credits);
+        public Student(StudentVars vars){
+            this.name = vars.name;
+            this.lastName = vars.lastName;
+            this.group = vars.groupName;
+        }
+
+        // ------------------- METHODS -------------------
+        public void addSubject(SubjectVars vars){  
+            Subject newSubject = new Subject(vars);
             subjects.Add(newSubject);
-
-
-
-            //newSubject.name = name etc etc
-            //can just use class, and each class has its own return single instance function as string, and then just using foreach on the array of subject objects can call each their own printing/returning/get function!!!
-
-            //create it and then send it to setter
-
-            //how do I access / create structs in c#, check it out
         }
 
-        //methods
-
-        //calculate vidurki pagal creditus + return the value!
         public double calculateAverage(){
-            return 3.3; //return average here
+            int allCredits = 0;
+            double allMultipliedValues = 0;
+            subjects.ForEach(el => {allCredits += el.getCredits(); allMultipliedValues += el.getGrade() * el.getCredits(); } );
+
+            return allMultipliedValues/allCredits;
         }
 
-        
-        public static Student SubjectsInput(Student student){
-            string name;
-            int grade;
-            int credits;
-            while(true){
-                Console.Write("Add subject? Y/N?");
-                string input = Console.ReadLine();
-                if(input == "N"){
-                    break;
-                }
-                Console.Write("Subject name: ");
-                name = Console.ReadLine();
-                Console.Write("Grade: ");
-                grade = Int32.Parse(Console.ReadLine());
-                Console.Write("Credits: ");
-                credits = Int32.Parse(Console.ReadLine());
-                student.addSubject(name,grade,credits);
-            }
-            return student;
-        }
+/*
+
+
+    Sum the number of credits. 4 + 4 + 3 + 2 = 13, that was a really easy step.
+    Take the value assigned to the grade and multiply by the number of credits. In our case, it will be:
+
+    A * 4 credits = 4.0 * 4 = 16
+    B * 4 credits = 3.0 * 4 = 12
+    A * 3 credits = 4.0 * 3 = 12
+    C * 2 credits = 2.3 * 2 = 4.6
+
+    Add all the values. 16 + 12 + 12 + 4.6 = 44.6
+    Divide the sum by the total number of credits. So for our example it's equal to 44.6/13 = 3.43
+
+
+ */
+
     }
 }
