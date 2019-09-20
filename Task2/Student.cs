@@ -11,7 +11,7 @@ namespace Task2
         private string name;
         private string lastName;
         private string group;
-        private List<Subject> subjects = new List<Subject>();
+        private List<Subject> subjects = null;
 
         // ------------------- GET SET -------------------
         public string getFullName(){
@@ -37,13 +37,11 @@ namespace Task2
             this.name = name;
             this.lastName = lastName;
             this.group = group;
+            this.subjects = new List<Subject>();
         }
 
-        public Student(StudentVars vars){
-            this.name = vars.name;
-            this.lastName = vars.lastName;
-            this.group = vars.groupName;
-        }
+        //Constructor calling another constructor if Struct is sent
+        public Student(StudentVars vars) : this(vars.name, vars.lastName, vars.groupName){ }
 
         // ------------------- METHODS -------------------
         public void addSubject(SubjectVars vars){  
