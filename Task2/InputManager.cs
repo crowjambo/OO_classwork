@@ -1,5 +1,6 @@
 //class for taking in inputs and returning them
 using System;
+using System.Collections.Generic; 
 
 namespace Task2
 {
@@ -30,7 +31,7 @@ namespace Task2
             return studentInputs;
         }
 
-        public static SubjectVars SubjectInput(){
+        public static SubjectVars AddSingleSubject(){
             var subjectInputs = new SubjectVars();
             
             //take inputs
@@ -43,6 +44,20 @@ namespace Task2
   
             
             return subjectInputs;
+        }
+
+        public static List<SubjectVars> AddMultipleSubjects(){
+            var subjectsToAdd = new List<SubjectVars>();
+
+            while(true){
+                subjectsToAdd.Add(AddSingleSubject());
+                Console.Write("Continue adding? N/n to stop : ");
+                var inputKey = Console.ReadLine();
+                if(inputKey == "N" || inputKey == "n"){
+                    break;
+                }
+            }
+            return subjectsToAdd;
         }
     }
 

@@ -44,9 +44,13 @@ namespace Task2
         public Student(StudentVars vars) : this(vars.name, vars.lastName, vars.groupName){ }
 
         // ------------------- METHODS -------------------
-        public void addSubject(SubjectVars vars){  
+        public void addSingleSubject(SubjectVars vars){  
             Subject newSubject = new Subject(vars);
             subjects.Add(newSubject);
+        }
+
+        public void addMultiSubjects(List<SubjectVars> subjects){
+            subjects.ForEach(el => {Subject newSubject = new Subject(el); this.subjects.Add(newSubject);});
         }
 
         public double calculateAverage(){

@@ -25,10 +25,8 @@ namespace Task2
             this.credits = credits;
         }
 
-        public Subject(SubjectVars vars){
-            this.name = vars.name;
-            this.grade = vars.grade;
-            this.credits = vars.credits;
+        public Subject(SubjectVars vars) : this(vars.name, vars.grade, vars.credits){
+            //sending values to the other constructor
         }
 
         // ------------------- METHODS -------------------

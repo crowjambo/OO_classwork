@@ -21,10 +21,8 @@ namespace Task2
             //create student
             Student student1 = new Student(InputManager.StudentInput());
 
-            //adds subjects
-            for(int i = 0; i<3;i++){
-                student1.addSubject(InputManager.SubjectInput());
-            }
+            //add multiple subjects
+            student1.addMultiSubjects(InputManager.AddMultipleSubjects());
 
             //outputs
             Console.WriteLine("\n\n-------------------\n\n");
