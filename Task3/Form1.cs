@@ -21,5 +21,11 @@ namespace Task3
         {
             MessageBox.Show("Hello World");
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Form2 x = new Form2();
+            x.ShowDialog();
+        }
     }
 }
