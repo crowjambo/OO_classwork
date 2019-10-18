@@ -33,7 +33,7 @@ namespace Task3
             //find and compare strings, then send the group if matched
             if(GroupListBox.SelectedItem != null)
             {
-                groupsContainer.getGroups().ForEach(group =>
+                groupsContainer.groups.ForEach(group =>
                 {
                     if (group.getTitle() == GroupListBox.SelectedItem.ToString())
                     {
@@ -56,7 +56,7 @@ namespace Task3
             //find and compare strings, then send the group if matched
             if (GroupListBox.SelectedItem != null)
             {
-                groupsContainer.getGroups().ForEach(group =>
+                groupsContainer.groups.ForEach(group =>
                 {
                     if (group.getTitle() == GroupListBox.SelectedItem.ToString())
                     {
@@ -89,7 +89,7 @@ namespace Task3
                 {
                     int index = 0;
                     int currIndex=0;
-                    groupsContainer.getGroups().ForEach(group =>
+                    groupsContainer.groups.ForEach(group =>
                     {
                         if (group.getTitle() == GroupListBox.SelectedItem.ToString())
                         {
@@ -115,7 +115,7 @@ namespace Task3
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            addTestValues();
+            
             Form1Update();
         }
 
@@ -125,31 +125,16 @@ namespace Task3
             GroupListBox.Items.Clear();
 
             //init and display student groups available ( if any )
-            groupsContainer.getGroups().ForEach(group => {
+            groupsContainer.groups.ForEach(group => {
                 GroupListBox.Items.Add(group.getTitle());
             });
-            if (groupsContainer.getGroups().Count == 0)
+            if (groupsContainer.groups.Count == 0)
             {
                 GroupListBox.Items.Clear();
             }
 
         }
 
-        public void addTestValues()
-        {
-            StudentGroup testGroup = new StudentGroup("PI18E", "18");
-            testGroup.AddStudent("Evaldas", "paulauskas");
-            testGroup.AddSubject("Math", 10);
-
-            testGroup.AddStudent("aaaa", "aaa");
-            testGroup.AddStudent("bbbb", "bbb");
-            testGroup.AddStudent("ccc", "ddd");
-            testGroup.AddStudent("ffff", "ggg");
-            testGroup.AddStudent("hhh", "hhh");
-            testGroup.AddStudent("jjjj", "jjjj");
-
-            groupsContainer.addGroup(testGroup);
-        }
 
         private void GroupListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -161,9 +146,6 @@ namespace Task3
             Form1Update();
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            Form1Update();
-        }
+
     }
 }

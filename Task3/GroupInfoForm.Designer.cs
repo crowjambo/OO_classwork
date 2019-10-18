@@ -245,6 +245,7 @@
             this.Controls.Add(this.SubjectsList);
             this.Controls.Add(this.StudentsList);
             this.Name = "GroupInfoForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GroupInfoForm";
             this.ResumeLayout(false);
             this.PerformLayout();

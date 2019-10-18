@@ -13,17 +13,23 @@ namespace Task3.BackEnd
         public GroupsContainer()
         {
             //empty at first (unless want to preload some data from somewhere! )
+
+            StudentGroup testGroup = new StudentGroup("PI18E", "18");
+            testGroup.AddStudent("Evaldas", "paulauskas");
+            testGroup.AddSubject("Math", 10);
+
+            testGroup.AddStudent("aaaa", "aaa");
+            testGroup.AddStudent("bbbb", "bbb");
+            testGroup.AddStudent("ccc", "ddd");
+            testGroup.AddStudent("ffff", "ggg");
+            testGroup.AddStudent("hhh", "hhh");
+            testGroup.AddStudent("jjjj", "jjjj");
+
+            groups.Add(testGroup);
         }
 
         //methods
-        public void addGroup(StudentGroup group)
-        {
-            groups.Add(group);
-        }
-        public List<StudentGroup> getGroups()
-        {
-            return groups;
-        }
+
 
 
     }

@@ -53,7 +53,7 @@ namespace Task3
         {
             if (!editing)
             {
-                groupContainer.addGroup(group);
+                groupContainer.groups.Add(group);
             }
             group.setTitle(TitleTextBox.Text);
             group.setSemesterNumber(SemesterNumberTextBox.Text);

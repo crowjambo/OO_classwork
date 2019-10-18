@@ -120,6 +120,7 @@
             this.StudentsListBox.FormattingEnabled = true;
             this.StudentsListBox.Location = new System.Drawing.Point(9, 140);
             this.StudentsListBox.Name = "StudentsListBox";
+            this.StudentsListBox.ScrollAlwaysVisible = true;
             this.StudentsListBox.Size = new System.Drawing.Size(120, 95);
             this.StudentsListBox.TabIndex = 8;
             // 
@@ -180,6 +181,7 @@
             this.Controls.Add(this.SemesterNumberTextBox);
             this.Controls.Add(this.TitleTextBox);
             this.Name = "GroupCreateForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GroupCreateForm";
             this.ResumeLayout(false);
             this.PerformLayout();
