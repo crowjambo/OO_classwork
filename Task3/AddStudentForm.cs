@@ -22,8 +22,15 @@ namespace Task3
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            group.AddStudent(NameTextBox.Text, LastNameTextBox.Text);
-            this.Close();
+            if(NameTextBox.Text != "" && LastNameTextBox.Text != "")
+            {
+                group.AddStudent(NameTextBox.Text, LastNameTextBox.Text);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Fill out all fields");
+            }
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

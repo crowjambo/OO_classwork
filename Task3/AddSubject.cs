@@ -24,8 +24,16 @@ namespace Task3
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
-            group.AddSubject(TitleTextBox.Text, Convert.ToInt32(CreditsTextBox.Text));
-            this.Close();
+            if(TitleTextBox.Text != "" && CreditsTextBox.Text != "")
+            {
+                group.AddSubject(TitleTextBox.Text, Convert.ToInt32(CreditsTextBox.Text));
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Input all fields first");
+            }
+
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)

@@ -43,6 +43,10 @@ namespace Task3
                     }
                 });
             }
+            else
+            {
+                MessageBox.Show("Select group to edit");
+            }
 
 
         }
@@ -62,6 +66,10 @@ namespace Task3
                     }
                 });
             }
+            else
+            {
+                MessageBox.Show("Select group first");
+            }
         }
 
         private void DeleteBtn_Click(object sender, EventArgs e)
@@ -69,6 +77,7 @@ namespace Task3
             //nothing selected
             if (GroupListBox.SelectedItem == null)
             {
+                MessageBox.Show("Select group first");
                 return;
             }
             else
@@ -148,6 +157,11 @@ namespace Task3
         }
 
         private void RefreshBtn_Click(object sender, EventArgs e)
+        {
+            Form1Update();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
         {
             Form1Update();
         }

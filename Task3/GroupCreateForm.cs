@@ -69,20 +69,28 @@ namespace Task3
 
         private void RemoveStudentBtn_Click(object sender, EventArgs e)
         {
-            int index = 0;
-            int currIndex = 0;
-            group.GetStudents().ForEach(student =>
+            if(StudentsListBox.SelectedItem != null)
             {
-                var x = student.getName() + " " + student.getLastName();
-                if(x == StudentsListBox.SelectedItem.ToString())
+                int index = 0;
+                int currIndex = 0;
+                group.GetStudents().ForEach(student =>
                 {
-                    currIndex = index;
-                }
-                index++;
-            });
-            group.studentList.RemoveAt(currIndex);
+                    var x = student.getName() + " " + student.getLastName();
+                    if (x == StudentsListBox.SelectedItem.ToString())
+                    {
+                        currIndex = index;
+                    }
+                    index++;
+                });
+                group.studentList.RemoveAt(currIndex);
 
-            UpdateFormFields();
+                UpdateFormFields();
+            }
+            else
+            {
+                MessageBox.Show("Select student first");
+            }
+
         }
 
         private void AddSubjectBtn_Click(object sender, EventArgs e)
@@ -93,20 +101,27 @@ namespace Task3
 
         private void RemoveSubjectBtn_Click(object sender, EventArgs e)
         {
-            int index = 0;
-            int currIndex = 0;
-            group.GetSubjects().ForEach(subject =>
+            if(SubjectsListBox.SelectedItem != null)
             {
-                
-                if (subject.getTitle() == SubjectsListBox.SelectedItem.ToString())
+                int index = 0;
+                int currIndex = 0;
+                group.GetSubjects().ForEach(subject =>
                 {
-                    currIndex = index;
-                }
-                index++;
-            });
-            group.subjectList.RemoveAt(currIndex);
 
-            UpdateFormFields();
+                    if (subject.getTitle() == SubjectsListBox.SelectedItem.ToString())
+                    {
+                        currIndex = index;
+                    }
+                    index++;
+                });
+                group.subjectList.RemoveAt(currIndex);
+
+                UpdateFormFields();
+            }
+            else
+            {
+                MessageBox.Show("Select subject first");
+            }
         }
 
         private void CancelGroupBtn_Click(object sender, EventArgs e)

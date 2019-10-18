@@ -40,6 +40,10 @@ namespace Task3
 
                 
             }
+            else
+            {
+                MessageBox.Show("Select Student,Subject and Input grade first");
+            }
         }
 
         private void DeleteGradeBtn_Click(object sender, EventArgs e)
@@ -58,6 +62,10 @@ namespace Task3
                 });
 
 
+            }
+            else
+            {
+                MessageBox.Show("Select Student,Subject and grade first");
             }
         }
 
@@ -157,14 +165,26 @@ namespace Task3
                     }
                 });
 
-                //show whole groups average
-                WholeGroupAverageLabel.Text = group.calcAllGroupAverage().ToString();
+                
             }
+            else
+            {
+
+                MessageBox.Show("Select student and subject to show grades");
+            }
+            //show whole groups average
+            WholeGroupAverageLabel.Text = group.calcAllGroupAverage().ToString();
         }
 
         private void ShowGradesBtn_Click(object sender, EventArgs e)
         {
             ShowGrades();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            ShowGrades();
+            UpdateFields();
         }
     }
         
