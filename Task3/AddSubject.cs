@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Task3
 {
-    public partial class Form2 : Form
+    public partial class AddSubject : Form
     {
-        public Form2()
+        public AddSubject()
         {
             InitializeComponent();
+        }
+
+        private void AddBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

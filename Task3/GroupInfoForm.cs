@@ -10,32 +10,26 @@ using System.Windows.Forms;
 
 namespace Task3
 {
-    public partial class Form1 : Form
+    public partial class GroupInfoForm : Form
     {
-        public Form1()
+        public GroupInfoForm()
         {
             InitializeComponent();
         }
 
-        private void addGroupBtn_Click(object sender, EventArgs e)
+        private void AddGradeBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void EditGroupBtn_Click(object sender, EventArgs e)
+        private void DeleteGradeBtn_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void SelectBtn_Click(object sender, EventArgs e)
+        private void BackBtn_Click(object sender, EventArgs e)
         {
 
         }
-
-        private void DeleteBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }
