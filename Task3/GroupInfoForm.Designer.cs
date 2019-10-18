@@ -44,6 +44,9 @@
             this.OverallAverageLabel = new System.Windows.Forms.Label();
             this.WholeGroupAverageLabel = new System.Windows.Forms.Label();
             this.BackBtn = new System.Windows.Forms.Button();
+            this.RefreshBtn = new System.Windows.Forms.Button();
+            this.CreditsListBox = new System.Windows.Forms.ListBox();
+            this.ShowGradesBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StudentsList
@@ -53,13 +56,14 @@
             this.StudentsList.Name = "StudentsList";
             this.StudentsList.Size = new System.Drawing.Size(159, 394);
             this.StudentsList.TabIndex = 0;
+            this.StudentsList.SelectedIndexChanged += new System.EventHandler(this.StudentsList_SelectedIndexChanged);
             // 
             // SubjectsList
             // 
             this.SubjectsList.FormattingEnabled = true;
             this.SubjectsList.Location = new System.Drawing.Point(178, 32);
             this.SubjectsList.Name = "SubjectsList";
-            this.SubjectsList.Size = new System.Drawing.Size(151, 394);
+            this.SubjectsList.Size = new System.Drawing.Size(111, 394);
             this.SubjectsList.TabIndex = 1;
             // 
             // GradesList
@@ -69,6 +73,7 @@
             this.GradesList.Name = "GradesList";
             this.GradesList.Size = new System.Drawing.Size(74, 394);
             this.GradesList.TabIndex = 2;
+            this.GradesList.SelectedIndexChanged += new System.EventHandler(this.GradesList_SelectedIndexChanged);
             // 
             // AddGradeBtn
             // 
@@ -187,11 +192,42 @@
             this.BackBtn.UseVisualStyleBackColor = true;
             this.BackBtn.Click += new System.EventHandler(this.BackBtn_Click);
             // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.Location = new System.Drawing.Point(598, 175);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(87, 23);
+            this.RefreshBtn.TabIndex = 16;
+            this.RefreshBtn.Text = "Refresh";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
+            // 
+            // CreditsListBox
+            // 
+            this.CreditsListBox.FormattingEnabled = true;
+            this.CreditsListBox.Location = new System.Drawing.Point(295, 32);
+            this.CreditsListBox.Name = "CreditsListBox";
+            this.CreditsListBox.Size = new System.Drawing.Size(34, 394);
+            this.CreditsListBox.TabIndex = 17;
+            // 
+            // ShowGradesBtn
+            // 
+            this.ShowGradesBtn.Location = new System.Drawing.Point(476, 175);
+            this.ShowGradesBtn.Name = "ShowGradesBtn";
+            this.ShowGradesBtn.Size = new System.Drawing.Size(88, 23);
+            this.ShowGradesBtn.TabIndex = 18;
+            this.ShowGradesBtn.Text = "Show Grades";
+            this.ShowGradesBtn.UseVisualStyleBackColor = true;
+            this.ShowGradesBtn.Click += new System.EventHandler(this.ShowGradesBtn_Click);
+            // 
             // GroupInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 450);
+            this.Controls.Add(this.ShowGradesBtn);
+            this.Controls.Add(this.CreditsListBox);
+            this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.BackBtn);
             this.Controls.Add(this.WholeGroupAverageLabel);
             this.Controls.Add(this.OverallAverageLabel);
@@ -233,5 +269,8 @@
         private System.Windows.Forms.Label OverallAverageLabel;
         private System.Windows.Forms.Label WholeGroupAverageLabel;
         private System.Windows.Forms.Button BackBtn;
+        private System.Windows.Forms.Button RefreshBtn;
+        private System.Windows.Forms.ListBox CreditsListBox;
+        private System.Windows.Forms.Button ShowGradesBtn;
     }
 }

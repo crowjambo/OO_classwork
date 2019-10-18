@@ -40,6 +40,7 @@
             this.SubjectsListBox = new System.Windows.Forms.ListBox();
             this.RemoveSubjectBtn = new System.Windows.Forms.Button();
             this.RemoveStudentBtn = new System.Windows.Forms.Button();
+            this.Refresh = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TitleTextBox
@@ -150,11 +151,22 @@
             this.RemoveStudentBtn.UseVisualStyleBackColor = true;
             this.RemoveStudentBtn.Click += new System.EventHandler(this.RemoveStudentBtn_Click);
             // 
+            // Refresh
+            // 
+            this.Refresh.Location = new System.Drawing.Point(219, 326);
+            this.Refresh.Name = "Refresh";
+            this.Refresh.Size = new System.Drawing.Size(75, 23);
+            this.Refresh.TabIndex = 12;
+            this.Refresh.Text = "refresh";
+            this.Refresh.UseVisualStyleBackColor = true;
+            this.Refresh.Click += new System.EventHandler(this.Refresh_Click);
+            // 
             // GroupCreateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(306, 435);
+            this.Controls.Add(this.Refresh);
             this.Controls.Add(this.RemoveStudentBtn);
             this.Controls.Add(this.RemoveSubjectBtn);
             this.Controls.Add(this.SubjectsListBox);
@@ -188,5 +200,6 @@
         private System.Windows.Forms.ListBox SubjectsListBox;
         private System.Windows.Forms.Button RemoveSubjectBtn;
         private System.Windows.Forms.Button RemoveStudentBtn;
+        private System.Windows.Forms.Button Refresh;
     }
 }

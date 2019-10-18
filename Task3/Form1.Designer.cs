@@ -33,6 +33,7 @@
             this.DeleteBtn = new System.Windows.Forms.Button();
             this.EditGroupBtn = new System.Windows.Forms.Button();
             this.GroupListBox = new System.Windows.Forms.ListBox();
+            this.RefreshBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // addGroupBtn
@@ -41,7 +42,7 @@
             this.addGroupBtn.Name = "addGroupBtn";
             this.addGroupBtn.Size = new System.Drawing.Size(75, 23);
             this.addGroupBtn.TabIndex = 0;
-            this.addGroupBtn.Text = "add group";
+            this.addGroupBtn.Text = "Add group";
             this.addGroupBtn.UseVisualStyleBackColor = true;
             this.addGroupBtn.Click += new System.EventHandler(this.addGroupBtn_Click);
             // 
@@ -78,13 +79,21 @@
             // GroupListBox
             // 
             this.GroupListBox.FormattingEnabled = true;
-            this.GroupListBox.Items.AddRange(new object[] {
-            "PI18E",
-            "ShitGroup"});
             this.GroupListBox.Location = new System.Drawing.Point(89, 127);
             this.GroupListBox.Name = "GroupListBox";
             this.GroupListBox.Size = new System.Drawing.Size(167, 95);
             this.GroupListBox.TabIndex = 4;
+            this.GroupListBox.SelectedIndexChanged += new System.EventHandler(this.GroupListBox_SelectedIndexChanged);
+            // 
+            // RefreshBtn
+            // 
+            this.RefreshBtn.Location = new System.Drawing.Point(257, 321);
+            this.RefreshBtn.Name = "RefreshBtn";
+            this.RefreshBtn.Size = new System.Drawing.Size(75, 23);
+            this.RefreshBtn.TabIndex = 5;
+            this.RefreshBtn.Text = "Refresh";
+            this.RefreshBtn.UseVisualStyleBackColor = true;
+            this.RefreshBtn.Click += new System.EventHandler(this.RefreshBtn_Click);
             // 
             // Form1
             // 
@@ -92,6 +101,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(354, 374);
+            this.Controls.Add(this.RefreshBtn);
             this.Controls.Add(this.GroupListBox);
             this.Controls.Add(this.EditGroupBtn);
             this.Controls.Add(this.DeleteBtn);
@@ -100,6 +110,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
@@ -111,6 +122,7 @@
         private System.Windows.Forms.Button DeleteBtn;
         private System.Windows.Forms.Button EditGroupBtn;
         private System.Windows.Forms.ListBox GroupListBox;
+        private System.Windows.Forms.Button RefreshBtn;
     }
 }
 
