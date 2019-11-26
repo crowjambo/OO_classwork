@@ -103,6 +103,7 @@
             this.ClientSize = new System.Drawing.Size(425, 370);
             this.Controls.Add(this.panel1);
             this.Name = "CheckoutForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CheckoutForm";
             this.Load += new System.EventHandler(this.CheckoutForm_Load);
             this.panel1.ResumeLayout(false);
