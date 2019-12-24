@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task5RestoHelper.Forms;
 
 namespace Task5RestoHelper
 {
@@ -16,7 +17,7 @@ namespace Task5RestoHelper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            Application.Run(new IntroScreen());
         }
     }
 }
