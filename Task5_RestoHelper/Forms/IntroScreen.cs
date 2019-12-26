@@ -20,13 +20,18 @@ namespace Task5RestoHelper.Forms
         private void AdminControlBtn_Click(object sender, EventArgs e)
         {
             AdminControl temp = new AdminControl();
-            temp.Show();
+            OpenNewForm(temp);
         }
 
         private void OrderManageBtn_Click(object sender, EventArgs e)
         {
             Form1 temp = new Form1();
-            temp.Show();
+            OpenNewForm(temp);
+        }
+
+        private void OpenNewForm(Form form)
+        {
+            form.ShowDialog();
         }
     }
 }
