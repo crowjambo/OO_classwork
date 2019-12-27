@@ -1,4 +1,61 @@
-﻿using System;
+﻿
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -64,5 +121,6 @@ namespace Task5RestoHelper
             }
             return Math.Round(sum,2);
         }
+
     }
 }

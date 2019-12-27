@@ -17,7 +17,14 @@ namespace Task5RestoHelper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new IntroScreen());
+            //this will let us return data from IntroScreen form
+            using (var form = new IntroScreen())
+            {
+                Application.Run(form);
+                //example usage
+                //MessageBox.Show(form.ReturnValueTest);
+            }
+            
         }
     }
 }
