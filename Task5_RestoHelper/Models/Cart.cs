@@ -1,85 +1,26 @@
-﻿
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task5RestoHelper.Controllers;
 
 namespace Task5RestoHelper
 {
     //controls collection of cart items, and sends data to populate the UI
-    public class CartManager
+    public class Cart
     {
         //main cart collection
         public Dictionary<string, List<CartItem>> cartCollection;
-        //main form it belongs to
-        Form1 mainForm;
 
-        public CartManager(Form1 form)
+        public Cart()
         {
-            mainForm = form;
             cartCollection = new Dictionary<string, List<CartItem>>();
         }
 
         //Append new items to cart
-        public void CreateNewItem(Item newItem)
+        public void CreateNewItem(Item newItem, OrderManagementController controller)
         {
             //temp for appending to cartCollections lists
             List<CartItem> temp;
@@ -91,11 +32,11 @@ namespace Task5RestoHelper
             }
             //add to new list matching name string
             cartCollection.TryGetValue(newItem.GetDishNameOnly(), out temp);
-            temp.Add(new CartItem(newItem, this,1));
+            temp.Add(new CartItem(newItem, controller,1));
 
 
             //send to populate UI
-            mainForm.RefreshCart(cartCollection);
+            //mainForm.RefreshCart(cartCollection);
         }
 
         //remove from collection and refresh
@@ -105,7 +46,7 @@ namespace Task5RestoHelper
             cartCollection.Remove(dishNameKey);
 
             //send to populate UI
-            mainForm.RefreshCart(cartCollection);
+            //mainForm.RefreshCart(cartCollection);
         }
 
         public double GetTotalWithoutVAT()
@@ -122,5 +63,6 @@ namespace Task5RestoHelper
             return Math.Round(sum,2);
         }
 
+        //public Dictionary<string, List<CartItem>>
     }
 }

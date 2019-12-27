@@ -12,12 +12,12 @@ namespace Task5RestoHelper
 {
     public static class SqliteDataAccess
     {
-        public static List<DishesModel> LoadDishes()
+        public static List<Dish> LoadDishes()
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 //returns IEnumerable
-                 var output = cnn.Query<DishesModel>("select * from Dishes", new DynamicParameters());
+                 var output = cnn.Query<Dish>("select * from Dishes", new DynamicParameters());
                 //return list instead
                 return output.ToList();
             }

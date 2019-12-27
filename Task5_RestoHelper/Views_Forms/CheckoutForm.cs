@@ -7,23 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task5RestoHelper.Controllers;
 
 namespace Task5RestoHelper
 {
     public partial class CheckoutForm : Form
     {
         //to access collection
-        CartManager cart;
+        OrderManagementController controller;
 
-        public CheckoutForm(CartManager cart)
+        public CheckoutForm(OrderManagementController controller)
         {
             InitializeComponent();
-            this.cart = cart;
+            this.controller = controller;
             
         }
 
         private void CheckoutForm_Load(object sender, EventArgs e)
         {
+            var cart = controller.GetCart();
+
             //date
             OrderDateLabel.Text = $"Order date: {DateTime.Now}";
             //load all items  

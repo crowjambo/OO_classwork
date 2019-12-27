@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Task5RestoHelper.Controllers;
 
 namespace Task5RestoHelper
 {
@@ -7,16 +8,16 @@ namespace Task5RestoHelper
     public partial class CartItem : UserControl
     {
         //cart here, each cart item belongs to a cart list (FROM MAIN)
-        CartManager cartManager;
+        OrderManagementController controller;
         private string dishName;
         private double dishPrice;
         private Item originalItem;
         private int quantity;
 
-        public CartItem(Item item, CartManager cart, int quantity)
+        public CartItem(Item item, OrderManagementController controller, int quantity)
         {
             InitializeComponent();
-            cartManager = cart;
+            this.controller = controller;
             dishName = item.GetDishNameOnly();
             dishPrice = item.GetDishPrice();
             originalItem = item;
@@ -40,7 +41,8 @@ namespace Task5RestoHelper
         //request manager to remove this item
         private void CartItemDeleteButton_Click(object sender, EventArgs e)
         {
-            cartManager.RemoveItem(dishName);
+            controller.GetCart().RemoveItem(dishName);
+            controller.UpdateCart();
         }
     }
 }

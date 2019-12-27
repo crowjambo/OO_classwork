@@ -2,52 +2,52 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using Task5RestoHelper.Controllers;
 
 namespace Task5RestoHelper
 {
     //performs all of the data pulling and displaying
     public partial class Form1 : Form
     {
-        //dishes collection
-        List<DishesModel> dishes;
-        //cart managing
-        CartManager cartManager;
+ 
+        //Controller this form belongs to
+        OrderManagementController controller;
 
         public Form1()
         {
-            InitializeComponent();  
+            InitializeComponent();
+            this.controller = new OrderManagementController(this);
         }
 
-        private void LoadDishes()
+        // Display all of items from DB
+        public void UpdateDishes()
         {
-            
-            //get dishes list from db
-            dishes = SqliteDataAccess.LoadDishes();
-      
-            //using list (REAL)
+            List<Item> items = controller.GetItems();
+
             int yDiff = 262;
             int xDiff = 332;
             int counter = 0;
             int colCounter = 0;
-            foreach (var dish in dishes)
-            {
-                Item newItem = new Item(dish.DishName, dish.Picture, dish.Price, dish.DishDescription, cartManager);
-
+            foreach (var item in items)
+            { 
                 if (counter % 2 == 0)
                 {
-                    newItem.Location = new Point(10, 15 + (colCounter * yDiff));
+                    item.Location = new Point(10, 15 + (colCounter * yDiff));
                 }
                 else
                 {
-                    newItem.Location = new Point(10 + xDiff, 15 + (colCounter * yDiff));
+                    item.Location = new Point(10 + xDiff, 15 + (colCounter * yDiff));
                     colCounter++;
                 }
                 counter++;
-                panel1.Controls.Add(newItem);
+                panel1.Controls.Add(item);
             }
         }
-        public void RefreshCart(Dictionary<string, List<CartItem>> cart)
+        public void UpdateCart()
         {
+            var cart = controller.GetCart();
+
+            #region Label
             //remove everything from cart panel display
             CartPanel.Controls.Clear();
 
@@ -61,15 +61,16 @@ namespace Task5RestoHelper
             };
             cartLabel.Font = new Font("Arial", 20);
             CartPanel.Controls.Add(cartLabel);
+            #endregion
 
             //create new CartItem objects placed in proper places based on KEYS
             List<CartItem> temp;
             int positionIncrementer = 120;
-            foreach(var item in cart)
+            foreach(var item in cart.cartCollection)
             {
                 //for each key, create 1 item, but depending on that keys CartList count, append diff Quantity number
-                cart.TryGetValue(item.Key, out temp);
-                CartItem newItem = new CartItem(temp[0].GetOriginalItem(), cartManager, temp.Count);
+                cart.cartCollection.TryGetValue(item.Key, out temp);
+                CartItem newItem = new CartItem(temp[0].GetOriginalItem(), controller, temp.Count);
                 CartPanel.Controls.Add(newItem);
                 newItem.Location = new Point(16, positionIncrementer);
 
@@ -77,11 +78,13 @@ namespace Task5RestoHelper
                 positionIncrementer += 40;
             }
 
+
+            #region Total cost Label
             //at the very end append label for showing total currentCost
             Label totalCountLabel = new Label
             {
                 Location = new Point(126, positionIncrementer),
-                Text = $"Current Total: {cartManager.GetTotalWithoutVAT().ToString()} $",
+                Text = $"Current Total: {cart.GetTotalWithoutVAT().ToString()} $",
 
             };
             totalCountLabel.Font = new Font("Arial", 12);
@@ -90,7 +93,9 @@ namespace Task5RestoHelper
             //next position will be lower
             positionIncrementer += 40;
             CartPanel.Controls.Add(totalCountLabel);
+            #endregion
 
+            #region Checkout Button
             //at the very bottom add checkout btn
             Button checkoutBtn = new Button();
             checkoutBtn.Size = new Size(75, 23);
@@ -98,22 +103,21 @@ namespace Task5RestoHelper
             checkoutBtn.Click += new System.EventHandler(this.CheckoutButton_Click);
             checkoutBtn.Location = new Point(100, positionIncrementer);
             CartPanel.Controls.Add(checkoutBtn);
-
+            #endregion
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //init cart manager
-            cartManager = new CartManager(this);
             //initialises dishes from database and creates display
-            LoadDishes();
+            controller.CreateItems();
+            controller.UpdateView();
 
         }
 
         //final check out processing
         private void CheckoutButton_Click(object sender, EventArgs e)
         {
-            CheckoutForm newForm = new CheckoutForm(cartManager);
+            CheckoutForm newForm = new CheckoutForm(controller);
             newForm.Show();
         }
 
