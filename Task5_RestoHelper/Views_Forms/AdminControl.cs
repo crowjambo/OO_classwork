@@ -7,26 +7,49 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task5RestoHelper.Controllers;
+using Task5RestoHelper.UserControls;
 
 namespace Task5RestoHelper.Forms
 {
     public partial class AdminControl : Form
     {
+        //controller
+        AdminController controller;
+
         public AdminControl()
         {
             InitializeComponent();
+            this.controller = new AdminController(this);
         }
 
         private void AdminControl_Load(object sender, EventArgs e)
         {
-            //load and init all of items from DB currenlty using ItemAdmin
-            LoadItems();
+            //call controlled to update this view
+            controller.CreateItems();
+            controller.UpdateView();
+
         }
 
-        private void LoadItems()
+
+        // Refresh items view
+        public void UpdateView()
         {
-            //use SQL DB access to load and then foreach loop
+            //using controller items model, list all items
+            List<ItemAdmin> items = controller.GetItems();
 
+            int yDiff = 110;
+            int colCounter = 0;
+    
+            foreach (var item in items)
+            {
+      
+                item.Location = new Point(10, 15 + (colCounter * yDiff));
+                colCounter++;
+               
+                ItemsPanel.Controls.Add(item);
+            }
         }
+
     }
 }

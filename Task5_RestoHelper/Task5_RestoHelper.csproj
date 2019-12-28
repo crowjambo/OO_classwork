@@ -96,6 +96,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\OrderManagementController.cs" />
     <Compile Include="FileDataAccess.cs" />
     <Compile Include="IOrderSave.cs" />

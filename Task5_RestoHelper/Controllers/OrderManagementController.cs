@@ -18,7 +18,6 @@ namespace Task5RestoHelper.Controllers
         //view
         private Form1 view;
 
-
         public OrderManagementController(Form1 view)
         {
             this.view = view;
@@ -65,18 +64,12 @@ namespace Task5RestoHelper.Controllers
             return cart;
         }
 
-
         // save receipt with DI
         public void Save(IOrderSave saver, OrderInfo info)
         {
             saver.Save(info);
         }
 
-        // on view dish buttons click, send data to Cart/Basket model to update
-        // on updated models, send signal to View to updae Cart/Basket part of the view
 
-        // will hold models for dish list and cart
-        // will have tie in functions to deal with models
-        // will have trigger functions to update UI (Holds the View object, to call it)
     }
 }

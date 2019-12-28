@@ -45,8 +45,6 @@ namespace Task5RestoHelper
         }
 
 
-
-
         //request cart manager to append selected item to list
         private void AddButton_Click(object sender, EventArgs e)
         {
