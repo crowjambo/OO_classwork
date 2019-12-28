@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Task5RestoHelper.Controllers;
+using Task5RestoHelper.Models;
 
 namespace Task5RestoHelper
 {
@@ -15,6 +16,8 @@ namespace Task5RestoHelper
     {
         //to access collection
         OrderManagementController controller;
+        OrderInfo orderInfo = new OrderInfo();
+
 
         public CheckoutForm(OrderManagementController controller)
         {
@@ -29,6 +32,8 @@ namespace Task5RestoHelper
 
             //date
             OrderDateLabel.Text = $"Order date: {DateTime.Now}";
+            orderInfo.Date1 = DateTime.Now.ToString();
+
             //load all items  
             List<CartItem> temp;
             int positionIncrementer = 101;
@@ -46,6 +51,7 @@ namespace Task5RestoHelper
 
                 //next position will be lower
                 positionIncrementer += 27;
+
             }
             //just for style
             positionIncrementer += 27;
@@ -58,8 +64,22 @@ namespace Task5RestoHelper
             //total no vat
             TotalNoVatLabel.Text = $"Total without VAT = {cart.GetTotalWithoutVAT().ToString()} $";
             TotalNoVatLabel.Location = new Point(50, positionIncrementer);
+
+            //save to order info
+            orderInfo.TotalVat = (cart.GetTotalWithoutVAT() * 0.21 + cart.GetTotalWithoutVAT()).ToString();
+            orderInfo.TotalNoVat = cart.GetTotalWithoutVAT().ToString();
+
         }
 
+        private void SaveReceiptBtn_Click(object sender, EventArgs e)
+        {
+            FileDataAccess fileDataAccess = new FileDataAccess();
+            SqliteDataAccess sqliteDataAccess = new SqliteDataAccess();
+            //send data to controller save function
+            controller.Save(fileDataAccess, orderInfo);
+            controller.Save(sqliteDataAccess, orderInfo);
 
+            MessageBox.Show("Saved");
+        }
     }
 }

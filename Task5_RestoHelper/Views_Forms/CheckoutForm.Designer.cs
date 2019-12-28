@@ -34,12 +34,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.OrderDateLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.SaveReceiptBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.SaveReceiptBtn);
             this.panel1.Controls.Add(this.TotalNoVatLabel);
             this.panel1.Controls.Add(this.TotalWithVatLabel);
             this.panel1.Controls.Add(this.label3);
@@ -96,6 +98,16 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Bill";
             // 
+            // SaveReceiptBtn
+            // 
+            this.SaveReceiptBtn.Location = new System.Drawing.Point(131, 301);
+            this.SaveReceiptBtn.Name = "SaveReceiptBtn";
+            this.SaveReceiptBtn.Size = new System.Drawing.Size(104, 23);
+            this.SaveReceiptBtn.TabIndex = 7;
+            this.SaveReceiptBtn.Text = "Save Receipt";
+            this.SaveReceiptBtn.UseVisualStyleBackColor = true;
+            this.SaveReceiptBtn.Click += new System.EventHandler(this.SaveReceiptBtn_Click);
+            // 
             // CheckoutForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,5 +132,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label OrderDateLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button SaveReceiptBtn;
     }
 }

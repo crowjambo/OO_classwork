@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Task5RestoHelper;
+using Task5RestoHelper.Models;
 
 namespace Task5RestoHelper.Controllers
 {
@@ -62,6 +63,13 @@ namespace Task5RestoHelper.Controllers
         public Cart GetCart()
         {
             return cart;
+        }
+
+
+        // save receipt with DI
+        public void Save(IOrderSave saver, OrderInfo info)
+        {
+            saver.Save(info);
         }
 
         // on view dish buttons click, send data to Cart/Basket model to update
