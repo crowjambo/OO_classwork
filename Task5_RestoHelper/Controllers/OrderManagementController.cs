@@ -21,7 +21,6 @@ namespace Task5RestoHelper.Controllers
         public OrderManagementController(Form1 view)
         {
             this.view = view;
-            LoadData();
             this.cart = new Cart();
             this.items = new List<Item>();
         }
@@ -36,6 +35,8 @@ namespace Task5RestoHelper.Controllers
         // send it to View to diplay dishes list
         public void UpdateView()
         {
+            LoadData();
+            CreateItems();
             view.UpdateDishes();
         }
 
@@ -51,6 +52,8 @@ namespace Task5RestoHelper.Controllers
 
         public void UpdateCart()
         {
+            //could create items here, just like Dish items ( separate more )
+
             view.UpdateCart();
         }
 

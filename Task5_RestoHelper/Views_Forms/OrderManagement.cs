@@ -109,7 +109,6 @@ namespace Task5RestoHelper
         private void Form1_Load(object sender, EventArgs e)
         {
             //initialises dishes from database and creates display
-            controller.CreateItems();
             controller.UpdateView();
 
         }
