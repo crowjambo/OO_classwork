@@ -34,6 +34,9 @@ namespace Task5RestoHelper.Forms
         // Refresh items view
         public void UpdateView()
         {
+            //remove previous items
+            ItemsPanel.Controls.Clear();
+
             //using controller items model, list all items
             List<ItemAdmin> items = controller.GetItems();
 

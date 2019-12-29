@@ -34,7 +34,6 @@ namespace Task5RestoHelper.Controllers
         // Create admin items
         public void CreateItems()
         {
-            //clear previous just in case
             items.Clear();
 
             foreach(Dish dish in dishes)
