@@ -26,7 +26,6 @@ namespace Task5RestoHelper.Forms
         private void AdminControl_Load(object sender, EventArgs e)
         {
             //call controlled to update this view
-            controller.CreateItems();
             controller.UpdateView();
 
         }
@@ -51,5 +50,11 @@ namespace Task5RestoHelper.Forms
             }
         }
 
+        // open a form empty
+        private void CreateNewBtn_Click(object sender, EventArgs e)
+        {
+            //empty
+            controller.ShowEditForm(-1);
+        }
     }
 }

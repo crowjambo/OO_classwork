@@ -32,6 +32,47 @@ namespace Task5RestoHelper
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        // singular look up where Id matches
+        public static Dish LoadDish(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            { 
+                return cnn.Query<Dish>("Select * From Dishes WHERE Id = @Id", new { id }).SingleOrDefault();
+            }
+        }
+
+        //update
+        public static void UpdateDishDb(Dish dish)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                string sqlQuery = "UPDATE Dishes SET DishName = @DishName, DishDescription = @DishDescription, Picture = @Picture, Price = @Price, Category = @Category WHERE Id = @Id";
+                cnn.Execute(sqlQuery, dish);
+    
+            }
+        }
+
+        //create new
+        public static void CreateNewDish(Dish dish)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("insert into Dishes (DishName, DishDescription, Picture, Price, Category) values (@DishName, @DishDescription, @Picture, @Price, @Category )", dish);
+
+            }
+        }
+
+        //remove dish from DB
+        public static void RemoveDish(int id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var sqlStatement = "DELETE FROM Dishes WHERE Id = @Id";
+                cnn.Execute(sqlStatement, new { Id = id });
+
+            }
+        }
+
 
         public void Save(OrderInfo info)
         {

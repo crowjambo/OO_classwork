@@ -13,5 +13,21 @@ namespace Task5RestoHelper
         public string DishDescription { get; set; }
         public string Picture { get; set; }
         public double Price { get; set; }
+        public int Category { get; set; }
+
+        public Dish()
+        {
+
+        }
+
+        public Dish(int id, string name, string description, string picURL, double price, int category)
+        {
+            this.Id = id;
+            this.DishName = name;
+            this.DishDescription = description;
+            this.Picture = picURL;
+            this.Price = price;
+            this.Category = category;
+        }
     }
 }

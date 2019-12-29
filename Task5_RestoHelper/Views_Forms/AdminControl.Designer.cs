@@ -40,6 +40,7 @@
             this.CreateNewBtn.TabIndex = 0;
             this.CreateNewBtn.Text = "Create New";
             this.CreateNewBtn.UseVisualStyleBackColor = true;
+            this.CreateNewBtn.Click += new System.EventHandler(this.CreateNewBtn_Click);
             // 
             // ItemsPanel
             // 

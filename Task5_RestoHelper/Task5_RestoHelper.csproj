@@ -166,6 +166,9 @@
     <EmbeddedResource Include="Views_Forms\CheckoutForm.resx">
       <DependentUpon>CheckoutForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views_Forms\ItemEditAdd.resx">
+      <DependentUpon>ItemEditAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views_Forms\OrderManagement.resx">
       <DependentUpon>OrderManagement.cs</DependentUpon>
     </EmbeddedResource>

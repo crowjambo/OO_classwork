@@ -30,11 +30,12 @@
         {
             this.EditBtn = new System.Windows.Forms.Button();
             this.ItemInfoLabel = new System.Windows.Forms.Label();
+            this.RemoveBTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EditBtn
             // 
-            this.EditBtn.Location = new System.Drawing.Point(672, 22);
+            this.EditBtn.Location = new System.Drawing.Point(672, 32);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(75, 23);
             this.EditBtn.TabIndex = 0;
@@ -51,11 +52,22 @@
             this.ItemInfoLabel.TabIndex = 2;
             this.ItemInfoLabel.Text = "label1";
             // 
+            // RemoveBTN
+            // 
+            this.RemoveBTN.Location = new System.Drawing.Point(672, 3);
+            this.RemoveBTN.Name = "RemoveBTN";
+            this.RemoveBTN.Size = new System.Drawing.Size(75, 23);
+            this.RemoveBTN.TabIndex = 3;
+            this.RemoveBTN.Text = "Remove";
+            this.RemoveBTN.UseVisualStyleBackColor = true;
+            this.RemoveBTN.Click += new System.EventHandler(this.RemoveBTN_Click);
+            // 
             // ItemAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
+            this.Controls.Add(this.RemoveBTN);
             this.Controls.Add(this.ItemInfoLabel);
             this.Controls.Add(this.EditBtn);
             this.Name = "ItemAdmin";
@@ -68,5 +80,6 @@
 
         private System.Windows.Forms.Button EditBtn;
         private System.Windows.Forms.Label ItemInfoLabel;
+        private System.Windows.Forms.Button RemoveBTN;
     }
 }
