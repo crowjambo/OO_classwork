@@ -7,11 +7,11 @@ using System.Configuration;
 using System.Data;
 using System.Data.SQLite;
 using Dapper;
-using Task5RestoHelper;
-using Task5RestoHelper.Models;
+using Task6Practice;
+using Task6Practice.Models;
 using System.Data.SqlClient;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     public class SqliteDataAccess : IOrderSave
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     public class Dish
     {

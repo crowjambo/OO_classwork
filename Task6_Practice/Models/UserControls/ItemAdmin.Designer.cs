@@ -1,4 +1,4 @@
-﻿namespace Task5RestoHelper.UserControls
+﻿namespace Task6Practice.UserControls
 {
     partial class ItemAdmin
     {

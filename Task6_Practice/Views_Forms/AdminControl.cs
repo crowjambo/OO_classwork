@@ -7,10 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task5RestoHelper.Controllers;
-using Task5RestoHelper.UserControls;
+using Task6Practice.Controllers;
+using Task6Practice.UserControls;
 
-namespace Task5RestoHelper.Forms
+namespace Task6Practice.Forms
 {
     public partial class AdminControl : Form
     {

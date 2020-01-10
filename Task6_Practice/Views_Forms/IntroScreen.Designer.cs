@@ -1,4 +1,4 @@
-﻿namespace Task5RestoHelper.Forms
+﻿namespace Task6Practice.Forms
 {
     partial class IntroScreen
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task5RestoHelper.Models
+namespace Task6Practice.Models
 {
     public class OrderInfo
     {

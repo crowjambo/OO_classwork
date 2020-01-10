@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task5RestoHelper.Forms;
-using Task5RestoHelper.UserControls;
-using Task5RestoHelper;
+using Task6Practice.Forms;
+using Task6Practice.UserControls;
+using Task6Practice;
 
-namespace Task5RestoHelper.Controllers
+namespace Task6Practice.Controllers
 {
     public class AdminController
     {

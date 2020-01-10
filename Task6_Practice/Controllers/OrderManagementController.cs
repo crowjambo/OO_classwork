@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task5RestoHelper;
-using Task5RestoHelper.Models;
+using Task6Practice;
+using Task6Practice.Models;
 
-namespace Task5RestoHelper.Controllers
+namespace Task6Practice.Controllers
 {
     public class OrderManagementController
     {
@@ -28,7 +28,11 @@ namespace Task5RestoHelper.Controllers
         // load data from DB
         public void LoadData()
         {
+            //load dishes from sqlite
             dishes = SqliteDataAccess.LoadDishes();
+
+            //load dishes from mongodb
+            MongoAccess.GetData();
             
         }
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task5RestoHelper.Controllers;
+using Task6Practice.Controllers;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     //controls collection of cart items, and sends data to populate the UI
     public class Cart

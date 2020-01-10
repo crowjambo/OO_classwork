@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using Task5RestoHelper.Controllers;
+using Task6Practice.Controllers;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     //singular cart item, with a name and button that calls cart manager to remove it from collection
     public partial class CartItem : UserControl

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using Task5RestoHelper.Controllers;
+using Task6Practice.Controllers;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     //performs all of the data pulling and displaying
     public partial class Form1 : Form

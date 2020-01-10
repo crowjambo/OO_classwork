@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Task5RestoHelper.Controllers;
+using Task6Practice.Controllers;
 
-namespace Task5RestoHelper
+namespace Task6Practice
 {
     //singular item data model
     public partial class Item : UserControl

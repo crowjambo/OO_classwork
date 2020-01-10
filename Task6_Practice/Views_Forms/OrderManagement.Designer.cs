@@ -1,4 +1,4 @@
-﻿namespace Task5RestoHelper
+﻿namespace Task6Practice
 {
     partial class Form1
     {

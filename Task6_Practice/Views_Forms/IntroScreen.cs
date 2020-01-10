@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Task5RestoHelper.Forms
+namespace Task6Practice.Forms
 {
     public partial class IntroScreen : Form
     {
