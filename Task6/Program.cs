@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Task5RestoHelper.Forms;
 
-namespace Task6_PracticalTask
+namespace Task5RestoHelper
 {
     static class Program
     {
@@ -16,7 +17,14 @@ namespace Task6_PracticalTask
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //this will let us return data from IntroScreen form
+            using (var form = new IntroScreen())
+            {
+                Application.Run(form);
+                //example usage
+                //MessageBox.Show(form.ReturnValueTest);
+            }
+            
         }
     }
 }
