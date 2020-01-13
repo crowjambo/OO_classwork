@@ -97,10 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\IntroScreenController.cs" />
     <Compile Include="Controllers\OrderManagementController.cs" />
     <Compile Include="FileDataAccess.cs" />
     <Compile Include="IOrderSave.cs" />
     <Compile Include="Models\OrderInfo.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Views_Forms\AdminControl.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -85,5 +85,32 @@ namespace Task5RestoHelper
             }
 
         }
+
+        //login check (send nickname/password )
+        public static User LoginUser(string nickname, string password)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<User>("select * from Users WHERE nickname = @nickname AND password = @password", new { nickname, password }).SingleOrDefault();
+                return output;
+            }
+        }
+
+        public static int RegisterUser(string nickname, string password)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                try
+                {
+                    int rowsAffected = cnn.Execute("INSERT INTO Users (nickname, password, discountType, accessLevel) values (@nickname, @password, 0, 1)", new { nickname, password });
+                    return rowsAffected;
+                }
+                catch(Exception ex)
+                {
+                    return 0;
+                }
+    
+            }
+        }
     }
 }
