@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Task5RestoHelper.Controllers;
 using Task5RestoHelper.UserControls;
+using Task5RestoHelper.Models;
 
 namespace Task5RestoHelper.Forms
 {
@@ -17,10 +18,13 @@ namespace Task5RestoHelper.Forms
         //controller
         AdminController controller;
 
-        public AdminControl()
+
+
+        public AdminControl(User user)
         {
             InitializeComponent();
             this.controller = new AdminController(this);
+            controller.user = user;
         }
 
         private void AdminControl_Load(object sender, EventArgs e)

@@ -31,6 +31,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.CartPanel = new System.Windows.Forms.Panel();
+            this.NameGreetingLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,11 +60,22 @@
             this.CartPanel.Size = new System.Drawing.Size(474, 659);
             this.CartPanel.TabIndex = 1;
             // 
+            // NameGreetingLabel
+            // 
+            this.NameGreetingLabel.AutoSize = true;
+            this.NameGreetingLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameGreetingLabel.Location = new System.Drawing.Point(296, 15);
+            this.NameGreetingLabel.Name = "NameGreetingLabel";
+            this.NameGreetingLabel.Size = new System.Drawing.Size(121, 25);
+            this.NameGreetingLabel.TabIndex = 3;
+            this.NameGreetingLabel.Text = "Hello, user!";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1146, 669);
+            this.Controls.Add(this.NameGreetingLabel);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CartPanel);
             this.Controls.Add(this.panel1);
@@ -80,6 +92,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel CartPanel;
+        private System.Windows.Forms.Label NameGreetingLabel;
     }
 }
 

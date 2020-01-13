@@ -11,6 +11,10 @@ namespace Task5RestoHelper.Controllers
 {
     public class OrderManagementController
     {
+
+        //user
+        public User user;
+
         //models
         private List<Dish> dishes;
         private Cart cart;

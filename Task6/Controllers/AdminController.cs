@@ -7,11 +7,15 @@ using System.Windows.Forms;
 using Task5RestoHelper.Forms;
 using Task5RestoHelper.UserControls;
 using Task5RestoHelper;
+using Task5RestoHelper.Models;
 
 namespace Task5RestoHelper.Controllers
 {
     public class AdminController
     {
+        //user
+        public User user;
+
         //views
         private AdminControl view;
 

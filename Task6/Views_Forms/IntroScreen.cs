@@ -20,6 +20,7 @@ namespace Task5RestoHelper.Forms
         {
             InitializeComponent();
             this.controller = new IntroScreenController();
+            controller.view = this;
         }
 
 
@@ -30,35 +31,28 @@ namespace Task5RestoHelper.Forms
 
         private void RegisterBTN_Click(object sender, EventArgs e)
         {
-            
-            int test = this.controller.RegisterUser(nicknameTextBox.Text, passwordTextBox.Text);
-            if(test != 0)
-            {
-                MessageBox.Show("Success! You can login now");
-            }
-            else
-            {
-                MessageBox.Show("Fail!");
-      
-            }
-            nicknameTextBox.Text = "";
-            passwordTextBox.Text = "";
+
+            this.controller.RegisterUser(nicknameTextBox.Text, passwordTextBox.Text);
 
         }
 
         private void loginBTN_Click(object sender, EventArgs e)
         {
-            User test = this.controller.Login(nicknameTextBox.Text, passwordTextBox.Text);
-            if(test != null)
-            {
-                MessageBox.Show(test.Nickname + test.Password);
-            }
-            else
-            {
-                MessageBox.Show("Login failed");
-                nicknameTextBox.Text = "";
-                passwordTextBox.Text = "";
-            }
+            this.controller.Login(nicknameTextBox.Text, passwordTextBox.Text);
+        }
+
+        public void FailedLogin()
+        {
+            MessageBox.Show("Login failed");
+            nicknameTextBox.Text = "";
+            passwordTextBox.Text = "";
+        }
+
+        public void RegisterMessage(string message)
+        {
+            MessageBox.Show(message);
+            nicknameTextBox.Text = "";
+            passwordTextBox.Text = "";
         }
     }
 }

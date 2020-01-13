@@ -5,11 +5,18 @@ using System.Text;
 using System.Threading.Tasks;
 using Task5RestoHelper.Models;
 using Task5RestoHelper;
+using Task5RestoHelper.Forms;
 
 namespace Task5RestoHelper.Controllers
 {
     class IntroScreenController
     {
+        //get logged in user to send to next form
+        public User user;
+
+        //view access
+        public IntroScreen view;
+
         public IntroScreenController()
         {
 
@@ -17,29 +24,52 @@ namespace Task5RestoHelper.Controllers
 
 
         //do login processing
-        public User Login(string nickname, string password)
+        public void Login(string nickname, string password)
         {
-            return SqliteDataAccess.LoginUser(nickname, password);
+            User test = SqliteDataAccess.LoginUser(nickname, password);
+
+            if (test != null)
+            {
+                this.user = test;
+                LoadNextView();
+            }
+            else
+            {
+                view.FailedLogin();
+            }
         }
 
 
         //do register processing
-        public int RegisterUser(string nickname, string password)
+        public void RegisterUser(string nickname, string password)
         {
-            return SqliteDataAccess.RegisterUser(nickname, password);
+            int test = SqliteDataAccess.RegisterUser(nickname, password);
+            if (test != 0)
+            {
+                view.RegisterMessage("Success!");
+            }
+            else
+            {
+                view.RegisterMessage("Fail");
+
+            }
         }
-
-        //Show Messagebox in UI
-        public void CallMessageBox()
-        {
-            //do User checks in controller and call messages in the UI from here ( TO KEEP IT CLEAN LATER )
-        }
-
-        //update UI on View
-
 
         //load next view with User
-
+        public void LoadNextView()
+        {
+            //admin
+            if(user.accessLevel == 0)
+            {
+                AdminControl form = new AdminControl(user);
+                form.ShowDialog();
+            }
+            else
+            {
+                Form1 form = new Form1(user);
+                form.ShowDialog();
+            }
+        }
 
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 using Task5RestoHelper.Controllers;
+using Task5RestoHelper.Models;
 
 namespace Task5RestoHelper
 {
@@ -13,10 +14,13 @@ namespace Task5RestoHelper
         //Controller this form belongs to
         OrderManagementController controller;
 
-        public Form1()
+        
+
+        public Form1(User user)
         {
             InitializeComponent();
             this.controller = new OrderManagementController(this);
+            controller.user = user;
         }
 
         // Display all of items from DB
@@ -110,6 +114,8 @@ namespace Task5RestoHelper
         {
             //initialises dishes from database and creates display
             controller.UpdateView();
+
+            NameGreetingLabel.Text = $"Hello, {controller.user.Nickname} !";
 
         }
 
